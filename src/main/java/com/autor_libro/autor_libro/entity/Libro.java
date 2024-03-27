@@ -1,38 +1,30 @@
 package com.autor_libro.autor_libro.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import java.util.UUID;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@NoArgsConstructor
+
+@Getter
+@Setter
 @Entity
+@Table(name="libros")
 public class Libro {
+
   @Id
-  @GeneratedValue
+  @GeneratedValue(strategy = GenerationType.UUID)
   private UUID id;
+
+  @Column(name="titulo")
   private  String titulo;
-  private Integer ano_publicacion;
 
-  public Libro(String titulo, Integer ano_publicacion) {
-    this.titulo = titulo;
-    this.ano_publicacion = ano_publicacion;
-  }
-
-  public String getTitulo() {
-    return titulo;
-  }
-
-  public void setTitulo(String titulo) {
-    this.titulo = titulo;
-  }
-
-  public Integer getAno_publicacion() {
-    return ano_publicacion;
-  }
-
-  public void setAno_publicacion(Integer ano_publicacion) {
-    this.ano_publicacion = ano_publicacion;
-  }
+  @Column(name="ano_publicacion")
+  private Integer anoPublicacion;
 }
