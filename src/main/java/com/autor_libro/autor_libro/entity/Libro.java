@@ -22,6 +22,8 @@ public class Libro {
   @GeneratedValue(strategy = GenerationType.UUID)
   private UUID id;
 
+  
+
   @Column(name="titulo")
   private  String titulo;
 
